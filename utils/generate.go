@@ -10,8 +10,6 @@ import (
 )
 
 func GenerateNest(levels int) {
-	// Remove dummy.txt
-	// Implement flat compression
 	start := time.Now()
 	dummyFile := "bomb/nested/dummy.txt"
 	file, err := os.Create(dummyFile)
@@ -36,7 +34,6 @@ func GenerateNest(levels int) {
 	err = ioutil.WriteFile("bomb/nested/bomb-nested.zip", bytesRead, 0755)
 	Check(err)
 	os.Remove(bombLevel)
-	// Dummy file not getting removed
 	os.Remove(dummyFile)
 	end := time.Now()
 	elapsed := end.Sub(start)
