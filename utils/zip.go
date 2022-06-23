@@ -42,12 +42,15 @@ func AddFileToZip(zipWriter *zip.Writer, filename string) error {
 }
 
 func CopyAndCompress(file string, count int) error {
+	// Create next level zip archive
 	newZipName := fmt.Sprintf("bomb/nested/level%d.zip", count+1)
 	newZipFile, err := os.Create(newZipName)
 	Check(err)
 	defer newZipFile.Close()
 	zipWriter := zip.NewWriter(newZipFile)
 	defer zipWriter.Close()
+
+	// Add ten copies of the previous level zip archive
 	bytesRead, err := ioutil.ReadFile(file)
 	Check(err)
 	for i := 1; i <= 10; i++ {

@@ -11,6 +11,8 @@ import (
 
 func GenerateNest(levels int) {
 	start := time.Now()
+
+	// Create a dummy file of size 1MB
 	dummyFile := "bomb/nested/dummy.txt"
 	file, err := os.Create(dummyFile)
 	Check(err)
@@ -18,9 +20,12 @@ func GenerateNest(levels int) {
 	_, err = file.Write([]byte(x))
 	Check(err)
 	file.Close()
+
+	// Make level1 zip archive using the dummy file
 	level1 := "bomb/nested/level1.zip"
 	err = ZipFiles(level1, dummyFile)
 	Check(err)
+
 	decompressionSize := 1
 	for i := 1; i < levels; i++ {
 		decompressionSize *= 10
@@ -28,6 +33,8 @@ func GenerateNest(levels int) {
 		err = CopyAndCompress(zipName, i)
 		Check(err)
 	}
+
+	// Rename the last level zip archive
 	bombLevel := fmt.Sprintf("bomb/nested/level%d.zip", levels)
 	bytesRead, err := ioutil.ReadFile(bombLevel)
 	Check(err)
@@ -35,8 +42,10 @@ func GenerateNest(levels int) {
 	Check(err)
 	os.Remove(bombLevel)
 	os.Remove(dummyFile)
+
 	end := time.Now()
 	elapsed := end.Sub(start)
+
 	bombInfo, err := os.Stat("bomb/nested/bomb-nested.zip")
 	Check(err)
 	bombSize := bombInfo.Size()

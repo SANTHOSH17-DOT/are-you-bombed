@@ -19,13 +19,6 @@ Go to the project directory
   cd you-are-bombed
 ```
 
-Install dependencies
-
-```bash
-  go build
-```
-
-
 ## Usage/Examples
 
 ### Generate flat zip bomb
@@ -81,3 +74,5 @@ Please open an issue if you find any improvement.
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
+
+**FOR EDUCATIONAL PURPOSE ONLY**

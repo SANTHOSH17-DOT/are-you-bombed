@@ -2,6 +2,7 @@ package main
 
 import (
 	"YOU-ARE-BOMBED/utils"
+	"fmt"
 	"net/http"
 	"os"
 	"strconv"
@@ -14,6 +15,11 @@ func home(c *gin.Context) {
 }
 
 func main() {
+	if len(os.Args) < 2 {
+		usage := "- Generate flat zip bomb\nCommand: go run main.go generate flat <number of files>\n\n- Generate nested zip bomb\nCommand: go run main.go generate nested <depth>\n\n- Run the server\nCommand: go run main.go host"
+		fmt.Println(usage)
+		return
+	}
 	Isgenerate := os.Args[1]
 	if Isgenerate == "generate" {
 		if os.Args[2] == "nested" {
