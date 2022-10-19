@@ -1,7 +1,7 @@
 package main
 
 import (
-	"YOU-ARE-BOMBED/utils"
+	"ARE-YOU-BOMBED/utils"
 	"fmt"
 	"net/http"
 	"os"
