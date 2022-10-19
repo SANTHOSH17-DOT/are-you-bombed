@@ -10,13 +10,13 @@ A zip bomb, also known as a decompression bomb or zip of death, is a malicious a
 Clone the project
 
 ```bash
-  git clone https://github.com/SANTHOSH17-DOT/you-are-bombed.git
+  git clone https://github.com/SANTHOSH17-DOT/are-you-bombed.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd you-are-bombed
+  cd are-you-bombed
 ```
 
 ## Usage/Examples
