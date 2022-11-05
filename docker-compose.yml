@@ -1,0 +1,6 @@
+services:
+  are-you-bombed:
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    command: "go run main.go host"

@@ -3,11 +3,13 @@ package main
 import (
 	"ARE-YOU-BOMBED/utils"
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 	"strconv"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func home(c *gin.Context) {
@@ -15,6 +17,10 @@ func home(c *gin.Context) {
 }
 
 func main() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 	if len(os.Args) < 2 {
 		usage := "- Generate flat zip bomb\nCommand: go run main.go generate flat <number of files>\n\n- Generate nested zip bomb\nCommand: go run main.go generate nested <depth>\n\n- Run the server\nCommand: go run main.go host"
 		fmt.Println(usage)
@@ -35,6 +41,6 @@ func main() {
 		router := gin.Default()
 		router.GET("/", home)
 		router.Static("/static", "./bomb")
-		router.Run("localhost:8080")
+		router.Run("localhost:" + os.Getenv("PORT"))
 	}
 }
