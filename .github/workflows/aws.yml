@@ -21,13 +21,12 @@ jobs:
           role-to-assume: ${{secrets.ROLE_TO_ASSUME}}
           aws-region: ${{secrets.AWS_REGION}}
           audience: ${{secrets.AUDIENCE}}
-      - name: rsync deployments
-        uses: burnett01/rsync-deployments@5.1
-        with:
-          role-to-assume: ${{secrets.ROLE_TO_ASSUME}}
-          aws-region: ${{secrets.AWS_REGION}}
-          audience: ${{secrets.AUDIENCE}}
-          switches: -avzr --delete
-          path: ./*
-          remote_path: /home/are-you-bombed
-          remote_host: ${{secrets.REMOTE_HOST}}
+      - name: Create CodeDeploy Deployment
+        id: deploy
+        run: |
+          aws deploy create-deployment \
+          --application-name Are-You-Bombed \
+          --deployment-group-name Code-deploy \
+          --deployment-config-name CodeDeployDefault.AllAtATime \
+          --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
+        
