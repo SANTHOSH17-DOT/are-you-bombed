@@ -7,7 +7,7 @@ A zip bomb, also known as a decompression bomb or zip of death, is a malicious a
 
 ## Run Locally
 
-First Fork the project
+Fork the project
 
 Clone the project
 
@@ -64,8 +64,8 @@ Total time elapsed: 299.697ms milliseconds
 
 ### The zip bombs can be downloaded from
 
-http://localhost:<PORT>/static/flat/bomb-flat.zip  
-http://localhost:<PORT>/static/nested/bomb-nested.zip
+http://localhost: &lt;PORT&gt; /static/flat/bomb-flat.zip  
+http://localhost: &lt;PORT&gt; /static/nested/bomb-nested.zip
 
  
  
