@@ -72,7 +72,7 @@ http://localhost:<PORT>/static/nested/bomb-nested.zip
 ## Contributing
 
 Contributions are always welcome!
-Please open an issue if you find any improvement.
+
 
 See `contributing.md` for ways to get started.
 
