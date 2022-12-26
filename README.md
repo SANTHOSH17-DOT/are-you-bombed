@@ -7,10 +7,12 @@ A zip bomb, also known as a decompression bomb or zip of death, is a malicious a
 
 ## Run Locally
 
+First Fork the project
+
 Clone the project
 
 ```bash
-  git clone https://github.com/SANTHOSH17-DOT/are-you-bombed.git
+  git clone https://github.com/<your-github-username>/are-you-bombed.git
 ```
 
 Go to the project directory
@@ -62,13 +64,19 @@ Total time elapsed: 299.697ms milliseconds
 
 ### The zip bombs can be downloaded from
 
-http://localhost:8080/static/flat/bomb-flat.zip  
-http://localhost:8080/static/nested/bomb-nested.zip
+http://localhost:<PORT>/static/flat/bomb-flat.zip  
+http://localhost:<PORT>/static/nested/bomb-nested.zip
 
+ 
+ 
 ## Contributing
 
-Contributions are always welcome!  
-Please open an issue if you find any improvement.
+Contributions are always welcome!
+
+
+See `contributing.md` for ways to get started.
+
+Please adhere to this project's `code of conduct`.
 
 ## License
 
