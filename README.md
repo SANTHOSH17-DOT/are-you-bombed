@@ -1,7 +1,7 @@
 
 # are-you-bombed
 
-A Golang application which can generate flat and nested zip bombs and serve them using Gin HTTP web framework.
+A Golang application which can generate flat and nested zip bombs and serve them using Fiber HTTP web framework.
 
 A zip bomb, also known as a decompression bomb or zip of death, is a malicious archive file designed to crash or render useless the program or system reading it. It is often employed to disable antivirus software, in order to create an opening for more traditional malware. -**Wikipedia**
 
