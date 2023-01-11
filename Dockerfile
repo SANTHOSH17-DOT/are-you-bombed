@@ -6,6 +6,10 @@ WORKDIR /app
 
 COPY go.mod go.sum ./
 
-RUN go mod download 
+RUN go mod download
 
 COPY . .
+
+RUN go run main.go generate flat 100
+
+RUN go run main.go generate nested 10
