@@ -1,6 +1,9 @@
+version: '3'
 services:
   are-you-bombed:
     build: .
     ports:
       - "${PORT}:${PORT}"
+    volumes:
+      - .:/are-you-bombed
     command: "go run main.go host"
