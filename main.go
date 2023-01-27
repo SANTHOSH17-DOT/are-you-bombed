@@ -41,6 +41,6 @@ func main() {
 		app := fiber.New()
 		app.Get("/", home)
 		app.Static("/static", "./bomb")
-		log.Fatal(app.Listen(os.Getenv("PORT")))
+		log.Fatal(app.Listen(":" + os.Getenv("PORT")))
 	}
 }

@@ -1,6 +1,7 @@
+version: '3'
 services:
   are-you-bombed:
     build: .
     ports:
       - "${PORT}:${PORT}"
-    command: "go run main.go host"
+    command: sh -c "go run main.go generate flat 100 && go run main.go generate nested 10 && go run main.go host"
